@@ -19,28 +19,52 @@ public class Main {
      * @return numero al que pertenece la opción.
      */
 
-    public int menuPrincipal(int opcion){
+    public static int menuPrincipal(int opcion){
         switch(opcion){
             case 0://Acceso usuario
-
-                break;
+                return 1;
             case 1://Consultar cuenta
-                break;
+                return 2;
             case 2://Depositar dinero
-                break;
+                return 3;
             case 3://Retirar dinero
-                break;
+                return 4;
             case 4://Otros movimientos
-                break;
+                return 5;
             case 5://Cerrar sesión
-                break;
+                return 6;
             default:
                 System.out.println("Opción no valida (0-5)");
+                return -1;
+        }
+    }
+
+    public static boolean numValido(int num){
+        if(num >= 0 && num <= 5){
+            return false;
+        }else {
+            return true;
         }
     }
 
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         System.out.println(bienvenida());
+        boolean salir = false;
+        do{
+            System.out.println();
+            System.out.println("--------MENU--------");
+            System.out.println("0. Acceso Usuario");
+            System.out.println("1. Consultar Cuenta");
+            System.out.println("2. Depositar dinero");
+            System.out.println("3. Retirar dinero");
+            System.out.println("4. Otros movimientos");
+            System.out.println("5. Cerrar Sesión");
+            System.out.print("Elige una de la opciones (0-5) -> ");
+            int opcion = sc.nextInt();
+
+            salir = numValido(opcion);
+        }while (salir);
     }
 }
